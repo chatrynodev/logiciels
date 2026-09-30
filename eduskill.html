@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f4ed">
+    <meta name="description" content="Eduskill est un projet web éducatif actuellement en cours de création.">
+    <title>Eduskill — Projet en cours</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: light;
+            --paper: #f5f4ed;
+            --ink: #20221f;
+            --muted: #73766d;
+            --line: #d8d8ce;
+            --green: #c7f36b;
+            --orange: #ff7657;
+            --mono: "DM Mono", monospace;
+            --sans: "Manrope", sans-serif;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: var(--sans);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .shell { width: min(1180px, calc(100% - 64px)); margin-inline: auto; }
+
+        .topbar {
+            height: 78px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .wordmark {
+            display: inline-flex;
+            align-items: center;
+            gap: 11px;
+            color: inherit;
+            font-size: 13px;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .mark {
+            width: 29px;
+            height: 29px;
+            display: grid;
+            place-items: center;
+            background: var(--ink);
+            color: var(--green);
+            font-family: var(--mono);
+            font-size: 12px;
+        }
+
+        main { flex: 1; display: grid; place-items: center; padding: 64px 0; }
+
+        .project {
+            width: min(760px, 100%);
+            padding: clamp(28px, 7vw, 72px);
+            border: 1px solid var(--ink);
+            background: #fffefa;
+            animation: arrive .55s ease-out both;
+        }
+
+        .eyebrow, .status, .meta {
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: .07em;
+            text-transform: uppercase;
+        }
+
+        .eyebrow { color: var(--muted); }
+
+        h1 {
+            margin: 26px 0 8px;
+            font-size: clamp(52px, 10vw, 92px);
+            line-height: .98;
+            font-weight: 800;
+        }
+
+        h1 span { color: var(--orange); }
+
+        .type { margin: 0; color: var(--muted); font-size: 14px; }
+
+        .rule { height: 1px; margin: 32px 0 25px; background: var(--line); }
+
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 9px 11px;
+            border: 1px solid #b4c58c;
+            background: #e6edda;
+            color: #40542b;
+        }
+
+        .status::before {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #72983f;
+            content: "";
+        }
+
+        h2 { margin: 22px 0 10px; font-size: clamp(21px, 4vw, 29px); line-height: 1.3; }
+
+        .description { max-width: 490px; margin: 0; color: var(--muted); font-size: 13px; line-height: 1.8; }
+
+        .back {
+            min-height: 48px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 30px;
+            padding: 0 16px;
+            background: var(--ink);
+            color: white;
+            font-size: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background .18s ease, color .18s ease;
+        }
+
+        .back:hover { background: var(--green); color: var(--ink); }
+        a:focus-visible { outline: 3px solid var(--orange); outline-offset: 4px; }
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            gap: 24px;
+            padding: 25px 0;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        footer p { margin: 0; }
+
+        @keyframes arrive {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 600px) {
+            .shell { width: min(100% - 36px, 540px); }
+            .topbar { height: 66px; }
+            main { padding: 36px 0; }
+            .project { padding: 29px 23px; }
+            footer { flex-direction: column; gap: 8px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <header class="topbar">
+            <a class="wordmark" href="index.html" aria-label="Retour au catalogue NCInformatique">
+                <span class="mark">N.</span>
+                <span>NCInformatique</span>
+            </a>
+            <span class="meta">Projet 02 / Web</span>
+        </header>
+
+        <main>
+            <article class="project" aria-labelledby="project-title">
+                <span class="eyebrow">Projet web éducatif</span>
+                <h1 id="project-title">Eduskill<span>.</span></h1>
+                <p class="type">Une nouvelle idée prend forme.</p>
+                <div class="rule"></div>
+                <span class="status">En cours de création</span>
+                <h2>Le site arrive bientôt.</h2>
+                <p class="description">Eduskill est actuellement en développement. Les détails du projet et le site complet seront présentés ici prochainement.</p>
+                <a class="back" href="index.html"><span aria-hidden="true">←</span> Retour aux projets</a>
+            </article>
+        </main>
+
+        <footer>
+            <p><strong>NCInformatique</strong> · Projets conçus et développés avec soin.</p>
+            <p>© 2026</p>
+        </footer>
+    </div>
+</body>
+</html>

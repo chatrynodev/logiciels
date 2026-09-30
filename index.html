@@ -285,6 +285,20 @@
         .catalogue-heading h2 { margin: 0; font-size: 19px; font-weight: 700; }
         .catalogue-heading span { color: var(--muted); }
 
+        .category-heading {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 25px 0 8px;
+            color: var(--muted);
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+        }
+
+        .category-heading::after { height: 1px; flex: 1; background: var(--line); content: ""; }
+
         .catalogue-row {
             display: grid;
             grid-template-columns: 70px minmax(130px, 1fr) 1.2fr auto;
@@ -296,11 +310,25 @@
             transition: padding .2s ease, background .2s ease;
         }
 
+        .catalogue-row:not(a) { cursor: default; }
         .catalogue-row:hover { padding-inline: 12px; background: #ebeae1; }
+        .catalogue-row:not(a):hover { padding-inline: 0; background: transparent; }
         .row-number { color: var(--muted); font-family: var(--mono); font-size: 10px; }
         .row-name { font-size: 16px; font-weight: 800; }
         .row-description { color: var(--muted); font-size: 12px; }
         .row-arrow { font-size: 20px; }
+
+        .project-status {
+            justify-self: end;
+            padding: 7px 9px;
+            border: 1px solid var(--line);
+            color: var(--muted);
+            font-family: var(--mono);
+            font-size: 9px;
+            text-transform: uppercase;
+        }
+
+        .project-status.starting { border-color: #b4c58c; background: #e6edda; color: #40542b; }
 
         .about {
             display: flex;
@@ -338,9 +366,12 @@
             .product-description { margin: 19px 0 23px; }
             .preview { min-height: 300px; }
             .catalogue { padding: 46px 0 50px; }
-            .catalogue-row { grid-template-columns: 35px 1fr auto; gap: 10px; min-height: 75px; }
-            .row-description { grid-column: 2; grid-row: 2; margin-top: -21px; padding-bottom: 13px; font-size: 11px; }
-            .row-arrow { grid-column: 3; grid-row: 1 / span 2; }
+            .catalogue-row { grid-template-columns: 28px minmax(0, 1fr) auto; gap: 10px; min-height: 75px; }
+            .row-number { grid-column: 1; grid-row: 1 / span 2; }
+            .row-name { grid-column: 2; grid-row: 1; }
+            .row-description { grid-column: 2; grid-row: 2; margin: 0; padding-bottom: 12px; font-size: 11px; }
+            .row-arrow, .project-status { grid-column: 3; grid-row: 1 / span 2; }
+            .project-status { max-width: 100px; text-align: center; }
             .about { flex-direction: column; gap: 8px; }
         }
 
@@ -352,9 +383,9 @@
 <body>
     <div class="shell">
         <header class="topbar">
-            <a class="wordmark" href="#accueil" aria-label="Noé, accueil">
+            <a class="wordmark" href="#accueil" aria-label="NCInformatique, accueil">
                 <span class="mark">N.</span>
-                <span>NOÉ / LOGICIELS</span>
+                <span>NCInformatique</span>
             </a>
             <nav class="nav" aria-label="Navigation principale">
                 <a href="#catalogue">Catalogue</a>
@@ -400,14 +431,28 @@
             <section class="catalogue" id="catalogue" aria-labelledby="catalogue-title">
                 <div class="catalogue-heading">
                     <h2 id="catalogue-title">Le catalogue</h2>
-                    <span class="section-label">01 logiciel</span>
+                    <span class="section-label">03 projets</span>
                 </div>
+                <h3 class="category-heading">Logiciels &amp; web</h3>
                 <a class="catalogue-row" href="Todo-Setup.exe" download>
                     <span class="row-number">01</span>
                     <span class="row-name">Todo</span>
-                    <span class="row-description">Application de gestion de tâches · Windows</span>
+                    <span class="row-description">Gestion de tâches · Windows</span>
+                    <span class="project-status">Disponible</span>
+                </a>
+                <a class="catalogue-row" href="eduskill.html" aria-label="Découvrir le projet Eduskill, site en cours de création">
+                    <span class="row-number">02</span>
+                    <span class="row-name">Eduskill</span>
+                    <span class="row-description">Projet web éducatif</span>
                     <span class="row-arrow" aria-hidden="true">↗</span>
                 </a>
+                <h3 class="category-heading">Applications mobiles</h3>
+                <div class="catalogue-row" aria-label="TrunkGPS, projet mobile en démarrage">
+                    <span class="row-number">03</span>
+                    <span class="row-name">TrunkGPS</span>
+                    <span class="row-description">Application mobile · Projet en démarrage</span>
+                    <span class="project-status starting">Début du projet</span>
+                </div>
             </section>
         </main>
 
